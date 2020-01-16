@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
@@ -14,7 +15,7 @@
 			
 			try{
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				conn = DriverManager.getConnection(IP주소,사용자,비밀번호);
+				conn = DriverManager.getConnection("IP주소","사용자","비밀번호");
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(strSQL);
 				
@@ -35,6 +36,36 @@
 				}
 			}
 			return countTotal;
+		}
+	}
+	class UpViews{
+		public int updateView(int num,int views){
+			String strSQL = "Update test_nsz.tb_Board SET views="+views+" where num="+num+";";
+			Connection conn = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			
+			try{
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				conn = DriverManager.getConnection("IP주소","사용자","비밀번호");
+				stmt = conn.createStatement();
+				if(stmt.executeUpdate(strSQL)>0){
+					
+				}
+			} 
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			finally{
+				try{
+					if(rs!=null) rs.close();
+					if(stmt!=null) stmt.close();
+					if(conn!=null) conn.close();
+				}
+				catch(SQLException e){
+				}
+			}
+			return views;
 		}
 	}
 %>
