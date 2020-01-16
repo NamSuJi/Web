@@ -1,4 +1,5 @@
 <%@ include file="header.jsp" %>
+<%@ include file="DBConnection.jsp" %>
 <%@ include file="Paging.jsp" %>
 <%
 	Paging paging = new Paging();
@@ -45,15 +46,14 @@
 	</tr>
 <%
 	
-	String strSQL = "Select num,name,subject,regdate,views FROM 테이블 LIMIT "+startRow+","+countList+";";
+	String strSQL = "Select num,name,subject,regdate,views FROM test_nsz.tb_Board LIMIT "+startRow+","+countList+";";
 	
-	Connection conn = null;
+	//DB 접속하는 클래스를 따로 만들어줌
+	Connection conn = new DBConnection().getConnection();
 	Statement stmt = null;
 	ResultSet rs = null;
-	
-	try{
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		conn = DriverManager.getConnection("IP주소","ID","Password");
+	if(conn!=null){
+		stmt = conn.createStatement();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(strSQL);
 		
@@ -74,15 +74,10 @@
 		</tr>
 <%		
 		}
-	} 
-	catch(Exception e){
-		e.printStackTrace();
-	} 
-	finally{
-		if(rs!=null) rs.close();
-		if(stmt!=null) stmt.close();
-		if(conn!=null) conn.close();
 	}
+	if(rs!=null) rs.close();
+	if(stmt!=null) stmt.close();
+	if(conn!=null) conn.close();
 %>
 	
 <%
