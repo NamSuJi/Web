@@ -36,6 +36,7 @@
 %>
 <!-- 쓰기는 로그인 되어 있을 시에 보여주도록 수정 필요 -->
 <form name='f'>
+<input type="hidden" name="num" />
 <input type="button" value="쓰기" class="button1" onClick="goWrite()"/>
 <table class="ListTable">
 	<tr>
@@ -48,7 +49,6 @@
 	
 	String strSQL = "Select num,name,subject,regdate,views FROM test_nsz.tb_Board LIMIT "+startRow+","+countList+";";
 	
-	//DB 접속하는 클래스를 따로 만들어줌
 	Connection conn = new DBConnection().getConnection();
 	Statement stmt = null;
 	ResultSet rs = null;
@@ -64,10 +64,8 @@
 			String regdate = rs.getString("regdate");
 			int views = rs.getInt("views");
 %>
-		<tr>
-			<td class="ListTd1">
-				<a href="view.jsp?num=<%=num%>" class="ListA"><%=subject%></a>
-			</td>
+		<tr class="trhover" onClick="javascript:goView('<%=num%>')">
+			<td class="ListTd1"><%=subject%></td>
 			<td class="ListTd2"><%=name%></td>
 			<td class="ListTd2"><%=regdate%></td>
 			<td class="ListTd2"><%=views%></td>
