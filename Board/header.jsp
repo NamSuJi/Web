@@ -1,5 +1,6 @@
-<%@ page import="java.sql.*" %>
+<%@ include file="Board.jsp" %>
 
+<%@ page import="java.sql.*" %>
 <html>
 <head>
 <title>OTLAB</title>
@@ -18,11 +19,11 @@
 <div class='main_wrap'>
 <div class='top'>
 	<div class='main_menu'>
-		<div><a href="/">About</a></div>
-		<div><a href="/">menu1</a></div>
-		<div><a href="/">menu2</a></div>
-		<div><a href="/">menu3</a></div>
-		<div><a href="/nsz/list.jsp">게시판</a></div>
-		<div><a href="/">Community</a></div>
+		<div class='top_menu'><a href="/">About</a></div>
+		<div class='top_menu'><a href="/">menu1</a></div>
+		<div class='top_menu'><a href="/">menu2</a></div>
+		<div class='top_menu'><a href="/">menu3</a></div>
+		<div class='top_menu'><a href="/nsz/list.jsp">게시판</a></div>
+		<div class='top_menu'><a href="/">Community</a></div>
 	</div>
 </div>
