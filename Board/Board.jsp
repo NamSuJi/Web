@@ -1,5 +1,5 @@
+<%@ include file="DBConnection.jsp" %>
 <%@ page import="java.sql.*" %>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
@@ -15,7 +15,7 @@
 			
 			try{
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				conn = DriverManager.getConnection("IP주소","사용자","비밀번호");
+				conn = DriverManager.getConnection("jdbc:mysql://220.69.247.5:3306/here?characterEncoding=UTF-8&serverTimezone=UTC","root","1q2w3e4r!");
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(strSQL);
 				
@@ -47,7 +47,7 @@
 			
 			try{
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				conn = DriverManager.getConnection("IP주소","사용자","비밀번호");
+				conn = DriverManager.getConnection("jdbc:mysql://220.69.247.5:3306/here?characterEncoding=UTF-8&serverTimezone=UTC","root","1q2w3e4r!");
 				stmt = conn.createStatement();
 				if(stmt.executeUpdate(strSQL)>0){
 					
