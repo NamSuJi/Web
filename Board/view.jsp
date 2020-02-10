@@ -1,6 +1,4 @@
 <%@ include file="header.jsp" %>
-<%@ include file="DBConnection.jsp" %>
-<%@ include file="Paging.jsp" %>
 
 <%
 	String num = request.getParameter("num");
