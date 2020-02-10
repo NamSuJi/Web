@@ -1,6 +1,4 @@
 <%@ include file="header.jsp" %>
-<%@ include file="DBConnection.jsp" %>
-<%@ include file="Paging.jsp" %>
 <%
 	Paging paging = new Paging();
 	int currentPage = 1; //현재 페이지 번호
