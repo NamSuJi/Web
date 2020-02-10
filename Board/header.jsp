@@ -1,4 +1,5 @@
 <%@ include file="Board.jsp" %>
+<%@ include file="DBConnection.jsp" %>
 
 <%@ page import="java.sql.*" %>
 <html>
