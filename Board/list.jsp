@@ -35,7 +35,8 @@
 <!-- 쓰기는 로그인 되어 있을 시에 보여주도록 수정 필요 -->
 <form name='f'>
 <input type="hidden" name="num" />
-<input type="button" value="쓰기" class="button1" onClick="goWrite()"/>
+<input type="hidden" name="inData" />
+<input type="button" value="쓰기" class="button1" onclick="javascript:goWrite1()"/>
 <table class="ListTable">
 	<tr>
 		<th class="ListTh1">제목</th>
@@ -45,13 +46,13 @@
 	</tr>
 <%
 	
-	String strSQL = "Select num,name,subject,regdate,views FROM test_nsz.tb_Board LIMIT "+startRow+","+countList+";";
+	String strSQL = "Select num,name,subject,regdate,views FROM test_nsz.tb_Board ";
+	strSQL += "order by num desc LIMIT "+startRow+","+countList+";";
 	
 	Connection conn = new DBConnection().getConnection();
 	Statement stmt = null;
 	ResultSet rs = null;
 	if(conn!=null){
-		stmt = conn.createStatement();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(strSQL);
 		
@@ -62,7 +63,7 @@
 			String regdate = rs.getString("regdate");
 			int views = rs.getInt("views");
 %>
-		<tr class="trhover" onClick="javascript:goView('<%=num%>')">
+		<tr class="trhover" onclick="javascript:goView('<%=num%>')">
 			<td class="ListTd1"><%=subject%></td>
 			<td class="ListTd2"><%=name%></td>
 			<td class="ListTd2"><%=regdate%></td>
@@ -119,4 +120,4 @@
 	</tr>
 </table>
 </form>
-<%@ include file="footer.jsp" %>
+<%@ include file="/footer.jsp" %>
