@@ -6,7 +6,7 @@
 <%
 String num = request.getParameter("inData");
 
-if(num != ""){
+if(!num.equals("")){
 	String subject;
 	String content;
 	String strSQL = "Select subject, content from test_nsz.tb_Board where num = "+num+";";
