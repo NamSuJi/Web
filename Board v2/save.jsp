@@ -22,7 +22,7 @@ content = content.replace("\r\n","<br />");
 int views = 0;
 String goView="";
 
-if(num == ""){
+if(num.equals("")){
 	strSQL = "insert into test_nsz.tb_Board(name,subject,content,regdate,views) values('";
 	strSQL += name+"','"+subject+"','"+content+"','"+regdate+"',"+views+");";
 }
