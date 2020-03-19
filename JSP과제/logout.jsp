@@ -4,5 +4,5 @@
 	
 	//현재 세션을 서버에서 제거
 	session.invalidate();
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp"); 
 %>
