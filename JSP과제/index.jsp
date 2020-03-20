@@ -23,7 +23,7 @@
 				
 				while(rs.next()){
 			%>
-				<td class='contenttd' onclick="javascript:goView('<%=rs.getInt("num")%>')">
+				<td class='contenttd' onclick="javascript:goView(<%=rs.getInt("num")%>)">
 					<div class='contentwrap'>
 						<div class='contentdiv1'> <%=rs.getString("category")%> </div>
 						<div class='contentdiv2'> <%=rs.getString("content")%> </div>
