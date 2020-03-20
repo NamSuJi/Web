@@ -4,5 +4,6 @@
 			Copy Rights @Code
 		</div>
 	</div>
+</form>
 </body>
 </html>
