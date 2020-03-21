@@ -8,7 +8,7 @@ class DBConnection{
 	
 	public DBConnection(){}
 	
-	public Connection getConnection() throws SQLException{
+	public Connection getConnection(){
 		Connection conn = null;
 		
 		try{
