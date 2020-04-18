@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="lib/css/index.css">
 <link rel="stylesheet" href="lib/css/board.css">
 <script src="lib/js/local.js"></script>
-<script src="lib/js/other.js"></script>
+<script src="lib/js/user.js"></script>
 </head>
 <body>
 <%
